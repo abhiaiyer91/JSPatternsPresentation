@@ -1,0 +1,8 @@
+// we would want something like this
+storeManager.execute( "buyInventory", "Bananas", "Fruits" );
+
+// underlying implemenation
+storeManager.execute = function ( name ) {
+  const storeManagerMethod =  _.get(storeManager, name);
+  return _.isFunction(storeManagerMethod) && _.partial(storeManagerMethod, ...arguments);
+};
