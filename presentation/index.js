@@ -43,7 +43,8 @@ const images = {
   seissues: require("../assets/seissues.png"),
   wp: require("../assets/wp.png"),
   redux: require("../assets/redux-2.png"),
-  markdown: require("../assets/markdown.png")
+  markdown: require("../assets/markdown.png"),
+  observer: require("../assets/observerpattern.png"),
 };
 
 preloader(images);
@@ -205,24 +206,78 @@ export default class Presentation extends React.Component {
               margin="20px auto"
               />
           </Slide>
+          <Slide transition={["slide"]} bgColor="primary">
+            <Heading caps fit size={1} textColor="secondary">
+              Some Flux
+            </Heading>
+            <CodePane
+              lang="js"
+              source={require("raw!../assets/fluxExample.example")}
+              margin="20px auto"
+            />
+          </Slide>
           <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
             <Heading caps fit size={1} textColor="primary">
               Enter Redux
             </Heading>
             <Image src={images.redux.replace("/", "")} margin="0px auto 40px" height="500px"/>
           </Slide>
-          <Slide transition={["spin", "slide"]} bgColor="tertiary">
-            <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
-              How can I get started?
+          <Slide transition={["slide"]} bgColor="primary">
+            <Heading caps fit size={1} textColor="secondary">
+              A closer look at Redux
             </Heading>
-            <Heading><Link textColor="secondary" href="https://workpop.gitbooks.io/pop/content/">Pop
-              Book</Link></Heading>
+            <CodePane
+              lang="js"
+              source={require("raw!../assets/closerLookRedux.example")}
+              margin="20px auto"
+            />
           </Slide>
           <Slide transition={["spin", "slide"]} bgColor="tertiary">
             <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
-              Office Hours
+              Let's talk Side Effects
             </Heading>
-            <Heading textColor="secondary">Discussions at 4pm</Heading>
+            <Appear>
+              <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
+                How do we handle this?
+              </Heading>
+            </Appear>
+          </Slide>
+          <Slide transition={["spin", "slide"]} bgColor="tertiary">
+            <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
+              Observer Pattern
+            </Heading>
+            The Observer is a design pattern where an object (known as a subject) maintains a list of objects depending on it (observers), automatically notifying them of any changes to state.
+          </Slide>
+          <Slide transition={["spin", "slide"]} bgColor="tertiary">
+            <Image src={images.observer.replace("/", "")} margin="0px auto 40px" height="500px"/>
+          </Slide>
+          <Slide transition={["spin", "slide"]} bgColor="tertiary">
+            <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
+              Observer Pattern Continued..
+            </Heading>
+            <CodePane
+              lang="js"
+              source={require("raw!../assets/implementation.example")}
+              margin="20px auto"
+            />
+          </Slide>
+          <Slide transition={["spin", "slide"]} bgColor="tertiary">
+            <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
+              An implementation
+            </Heading>
+            <CodePane
+              lang="js"
+              source={require("raw!../assets/hooks.example")}
+              margin="20px auto"
+            />
+          </Slide>
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={1} fit caps lineHeight={1} textColor="black">
+              THANKS!!!
+            </Heading>
+            <Heading size={1} fit caps>
+              Follow me, @abhiaiyer - Twitter, Medium.
+            </Heading>
           </Slide>
         </Deck>
       </Spectacle>

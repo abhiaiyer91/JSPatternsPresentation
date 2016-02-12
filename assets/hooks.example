@@ -1,0 +1,20 @@
+Hooks.add('posts.submit.async', function (post) {
+  // do something to the attachment before the post is inserted
+  if (post.attachment) {
+    post.attachment = mutateAttachment(post.attachment);
+  }
+
+  Email.sendEmail(post.attachment);
+  // must return the post for the next callback
+  return post;
+});
+
+
+//ON THE SERVER
+
+Api.submitPost = (post) => {
+    // insert this document to the Posts table
+    PostsApi.insertDocument(post);
+    // inform registered listeners that this event occured
+    Hooks.runAsync('posts.submit.async', post);
+});

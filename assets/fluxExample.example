@@ -1,0 +1,18 @@
+var CostcoDispatcher = new Dispatcher();
+
+// Keeps track of which sku is selected
+var TVStore = {tv: null};
+
+// when a user wants to pick a TV from the store
+CostcoDispatcher.dispatch({
+  actionType: 'item-update',
+  selectedItem: 'SAMSUNG_TELEVISION'
+});
+
+// register a action to the store
+
+CostcoDispatcher.register(function(payload) {
+  if (payload.actionType === 'item-update') {
+    TVStore.tv = payload.selectedItem;
+  }
+});

@@ -1,0 +1,12 @@
+/**
+ * Add a callback function to a hook
+ * @param {String} hookName - The name of the hook
+ * @param {Function} callback - The callback function
+ */
+Hooks.add = function (hookName, callback) {
+  // if callback array doesn't exist yet, initialize it
+  Hooks[hookName] = Hooks[hookName] || [];
+  if (_.isFunction(callback)) {
+    Hooks[hookName].push(callback);
+  }
+};
